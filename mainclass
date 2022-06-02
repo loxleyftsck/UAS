@@ -1,0 +1,82 @@
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+public class MainClass {
+    public static void main(String[] args) {     
+     System.out.println("*****DATA NASABAH****");
+      String nama=JOptionPane.showInputDialog(null,"Masukkan Nama : ");
+      String nomer=JOptionPane.showInputDialog(null,"Masukkan Nomor Rekening : ");
+      String masaAktif=JOptionPane.showInputDialog(null,"Masukkan Masa Aktif : ");
+      int saldo=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo : "));
+      Mbanking bank=new Mbanking(nama,nomer,masaAktif,saldo);
+      System.out.println("Nama				: "+bank.getNama());
+      System.out.println("No Rekening			: "+bank.getNoRek());
+      System.out.println("Saldo Anda			: "+bank.getSaldo());
+      System.out.println("Masa Aktif Kartu Anda		: "+bank.getMasaAktif());
+      
+      
+      System.out.println("*****DATA eMoney*****");
+      eWallet[] ewallet=new eWallet[3];
+      type metode=new type("m-Tranfer");
+      type[] Mthode=new type[eWallet.MAX_TRANSFER];
+      String nama1=JOptionPane.showInputDialog(null,"Masukkan Nama : ");
+      String nomer1=JOptionPane.showInputDialog(null,"Masukkan ID Transaksi : ");
+      int saldo1=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo : "));
+      DANA dana=new DANA(nama1,nomer1,saldo1);
+      int isiSaldo1=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo yang ingin ditambahkan : "));
+      dana.setIsiSaldo(isiSaldo1);
+      ewallet[0]=dana;
+      
+      
+      String nama2=JOptionPane.showInputDialog(null,"Masukkan Nama : ");
+      String nomer2=JOptionPane.showInputDialog(null,"Masukkan ID Transaksi : ");
+      int saldo2=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo : "));
+      GOPAY gopay=new GOPAY(nama2,nomer2,saldo2);
+      int isiSaldo2=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo yang ingin ditambahkan : "));
+      gopay.setIsiSaldo(isiSaldo2);
+      ewallet[1]=gopay;
+      
+      String nama3=JOptionPane.showInputDialog(null,"Masukkan Nama : ");
+      String nomer3=JOptionPane.showInputDialog(null,"Masukkan ID Transaksi : ");
+      int saldo3=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo : "));
+      OVO ovo=new OVO(nama3,nomer3,saldo3);
+      int isiSaldo3=Integer.parseInt(JOptionPane.showInputDialog(null,"Masukkan Saldo yang ingin ditambahkan : "));
+      ovo.setIsiSaldo(isiSaldo3);
+      ewallet[2]=ovo;
+      
+         for (int i = 0; i < ewallet.length; i++) {
+            if (ewallet[i]instanceof DANA) {
+       System.out.println("---------------------------------------");
+       System.out.println("================DANA===================");
+       System.out.println("---------------------------------------");
+       System.out.println("Nama				: "+ewallet[i].getNama());
+       System.out.println("ID Transaksi			: "+ewallet[i].getNomer());
+       System.out.println("Saldo anda saat ini		: "+ewallet[i].getSaldo());
+       System.out.println("Metode Pembayaran		: "+metode);
+       System.out.println("Saldo yang anda tambahkan	: "+((DANA)ewallet[i]).getIsiSaldo());
+       System.out.println("Total Saldo Anda		: "+ewallet[i].getTopUp());
+       System.out.println("Limit Saldo Anda Tersisa	: "+((DANA)ewallet[i]).getLimit());}
+             else if (ewallet[i]instanceof GOPAY) {
+       System.out.println("---------------------------------------");
+       System.out.println("================GOPAY==================");
+       System.out.println("---------------------------------------");
+       System.out.println("Nama				: "+ewallet[i].getNama());
+       System.out.println("ID Transaksi			: "+ewallet[i].getNomer());
+       System.out.println("Saldo anda saat ini		: "+ewallet[i].getSaldo());
+       System.out.println("Metode Pembayaran		: "+metode);
+       System.out.println("Saldo yang anda tambahkan	: "+((GOPAY)ewallet[i]).getIsiSaldo());
+       System.out.println("Total Saldo Anda		: "+ewallet[i].getTopUp());
+       System.out.println("Limit Saldo Anda Tersisa	: "+((GOPAY)ewallet[i]).getLimit());}
+             else if (ewallet[i]instanceof OVO) {
+       System.out.println("---------------------------------------");
+       System.out.println("=================OVO===================");
+       System.out.println("---------------------------------------");
+       System.out.println("Nama				: "+ewallet[i].getNama());
+       System.out.println("ID Transaksi			: "+ewallet[i].getNomer());
+       System.out.println("Saldo anda saat ini		: "+ewallet[i].getSaldo());
+       System.out.println("Metode Pembayaran		: "+metode);
+       System.out.println("Saldo yang anda tambahkan	: "+((OVO)ewallet[i]).getIsiSaldo());
+       System.out.println("Total Saldo Anda		: "+ewallet[i].getTopUp());
+       System.out.println("Limit Saldo Anda Tersisa	: "+((OVO)ewallet[i]).getLimit());}}
+       System.out.println("~~~~~TERIMA KASIH~~~~~");
+    }  
+}
