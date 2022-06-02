@@ -1,0 +1,19 @@
+public class type {
+    private String metodeBayar ;
+    
+    public type(String metodeBayar){
+        this.metodeBayar=metodeBayar;
+    }
+
+    public String getMetodeBayar() {
+        return metodeBayar;
+    }
+
+    public void setMetodeBayar(String metodeBayar) {
+        this.metodeBayar = metodeBayar;
+    }
+    public String toString(){
+        return metodeBayar;
+    }
+    
+}
